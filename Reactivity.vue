@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {ref, watch} from 'vue';
+import {computed, ref, watch} from 'vue';
 
 const count = ref(0)
 const log = ref<string>()
@@ -13,11 +13,15 @@ watch(count, (newValue, oldValue)=>{
   log.value = `oldValue: ${oldValue} - newValue: ${newValue}`
 })
 
+const countViewModel = computed(()=> {
+  return count.value + ' kalem'
+})
+
 </script>
 
 <template>
   <div>
-    <button @click="updateCount">{{ count }}</button>
+    <button @click="updateCount">{{ countViewModel }}</button>
     <pre>
       {{ log }}
     </pre>
