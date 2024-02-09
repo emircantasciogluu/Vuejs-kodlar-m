@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-const isRed = ref(false)
 
+const isRed = ref(false)
+const myStyle = {
+  color: 'blue',
+  background: 'red',
+  padding: '12px 24px' 
+}
 
 
 </script>
@@ -9,6 +14,7 @@ const isRed = ref(false)
 <template>
   <div class="container">
     <h1 :class="{ baslik: isRed }">Emir Can Taşcıoğlu</h1>
+    <h1 :style="myStyle">Vue.js Öğreniyorum</h1>
     <button @click="isRed = true">change color</button>
     <button @click="isRed = false">Reset</button>
   </div>
